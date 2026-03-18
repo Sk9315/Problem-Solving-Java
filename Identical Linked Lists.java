@@ -21,3 +21,49 @@ Expected Complexities
 
 My solution
 */
+/*
+class Node {
+    int data;
+    Node next;
+
+    public Node(int data){
+        this.data = data;
+        this.next = null;
+    }
+}*/
+class Solution {
+    public boolean areIdentical(Node head1, Node head2) {
+        // code here
+        int n1=0;
+        int n2=0;
+        Node temp1=head1;
+        Node temp2=head2;
+        while(temp1!=null){
+            if(temp2==null){
+             break;
+            }
+            temp1=temp1.next;
+            temp2=temp2.next;
+            n1++;
+            n2++;
+        }
+        if((temp1==null && temp2!=null) || (temp2==null && temp1!=null)){
+            return false;
+        }
+        
+        temp1=head1;
+        temp2=head2;
+    
+            while(temp1!=null){
+                if(temp1.data!=temp2.data){
+                    return false;
+                }
+                temp1=temp1.next;
+                temp2=temp2.next;
+            }
+        return true;
+        
+        
+        
+    }
+}
